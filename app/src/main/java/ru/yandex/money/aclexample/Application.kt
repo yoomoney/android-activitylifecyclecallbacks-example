@@ -18,6 +18,7 @@ class Application : Application() {
     override fun onCreate() {
         super.onCreate()
         registerActivityLifecycleCallbacks(ThemeCallback(R.style.AppTheme_Custom))
+        registerActivityLifecycleCallbacks(DialogCallback(ExampleDialogFragment()))
     }
 
     interface ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
@@ -68,6 +69,17 @@ class EntryPointActivity : AppCompatActivity() {
                 text = "Not affected Theme Example"
                 setOnClickListener {
                     startActivity(Intent(it.context, NotAffectedThemeActivity::class.java))
+                }
+            }.also(::addView)
+
+            Button(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                text = "Dailog Example"
+                setOnClickListener {
+                    startActivity(Intent(it.context, DialogActivity::class.java))
                 }
             }.also(::addView)
         })
