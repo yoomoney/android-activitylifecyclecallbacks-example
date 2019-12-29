@@ -4,13 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
@@ -75,14 +69,8 @@ class ResultActivity : AppCompatActivity() {
 class StartForResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(FrameLayout(this).apply {
-            layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
-
-            AppCompatTextView(context).apply {
-                layoutParams = FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, Gravity.CENTER)
-                gravity = Gravity.CENTER
-                text = "Start for result example\nsee output in Logcat by \"StartForResultExample\" tag"
-            }.also(::addView)
+        setContentView(FrameLayout {
+            Text(text = "Start for result example\nsee output in Logcat by \"StartForResultExample\" tag")
         })
     }
 }

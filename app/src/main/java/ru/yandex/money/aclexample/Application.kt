@@ -5,12 +5,6 @@ import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.ContextThemeWrapper
-import android.view.Gravity
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import dagger.android.DispatchingAndroidInjector
 import ru.yandex.notmoney.NotAffectedThemeActivity
@@ -59,90 +53,34 @@ class Application : Application() {
 class EntryPointActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(LinearLayout(ContextThemeWrapper(this, R.style.AppTheme)).apply {
-            layoutParams = FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-            )
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER_VERTICAL
+        setContentView(LinearLayout(theme = R.style.AppTheme) {
+            Button(text = "Theme Example") {
+                startActivity(Intent(it.context, ThemeActivity::class.java))
+            }
 
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "Theme Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, ThemeActivity::class.java))
-                }
-            }.also(::addView)
+            Button(text = "Not affected Theme Example") {
+                startActivity(Intent(it.context, NotAffectedThemeActivity::class.java))
+            }
 
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "Not affected Theme Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, NotAffectedThemeActivity::class.java))
-                }
-            }.also(::addView)
+            Button(text = "Dailog Example") {
+                startActivity(Intent(it.context, DialogActivity::class.java))
+            }
 
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "Dailog Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, DialogActivity::class.java))
-                }
-            }.also(::addView)
+            Button(text = "StartForResult Example") {
+                startActivity(Intent(it.context, StartForResultActivity::class.java))
+            }
 
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "StartForResult Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, StartForResultActivity::class.java))
-                }
-            }.also(::addView)
+            Button(text = "Analytics Example") {
+                startActivity(Intent(it.context, AnalyticsActivity::class.java))
+            }
 
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "Analytics Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, AnalyticsActivity::class.java))
-                }
-            }.also(::addView)
+            Button(text = "DI Example") {
+                startActivity(Intent(it.context, DIActivity::class.java))
+            }
 
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "DI Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, DIActivity::class.java))
-                }
-            }.also(::addView)
-
-            Button(context).apply {
-                layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                text = "Dagger Example"
-                setOnClickListener {
-                    startActivity(Intent(it.context, DaggerActivity::class.java))
-                }
-            }.also(::addView)
+            Button(text = "Dagger Example") {
+                startActivity(Intent(it.context, DaggerActivity::class.java))
+            }
         })
     }
 }

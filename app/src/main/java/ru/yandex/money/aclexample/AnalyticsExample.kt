@@ -2,13 +2,7 @@ package ru.yandex.money.aclexample
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatTextView
 
 interface Screen {
     val screenName: String
@@ -39,14 +33,8 @@ class AnalyticsActivity : AppCompatActivity(), ScreenWithParameters {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(FrameLayout(this).apply {
-            layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
-
-            AppCompatTextView(context).apply {
-                layoutParams = FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, Gravity.CENTER)
-                gravity = Gravity.CENTER
-                text = "Analytics example\nsee output in Logcat by \"Analytics\" tag"
-            }.also(::addView)
+        setContentView(FrameLayout {
+            Text("Analytics example\nsee output in Logcat by \"Analytics\" tag")
         })
     }
 }
