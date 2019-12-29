@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.view.ViewGroup
@@ -20,6 +21,11 @@ class Application : Application() {
         registerActivityLifecycleCallbacks(ThemeCallback(R.style.AppTheme_Custom))
         registerActivityLifecycleCallbacks(DialogCallback(ExampleDialogFragment()))
         registerActivityLifecycleCallbacks(StartingActivityCallback())
+        registerActivityLifecycleCallbacks(
+            AnalyticsActivityCallback { name, params ->
+                Log.d("Analytics", "$name $params")
+            }
+        )
     }
 
     interface ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
@@ -92,6 +98,17 @@ class EntryPointActivity : AppCompatActivity() {
                 text = "StartForResult Example"
                 setOnClickListener {
                     startActivity(Intent(it.context, StartForResultActivity::class.java))
+                }
+            }.also(::addView)
+
+            Button(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                text = "Analytics Example"
+                setOnClickListener {
+                    startActivity(Intent(it.context, AnalyticsActivity::class.java))
                 }
             }.also(::addView)
         })
