@@ -19,6 +19,7 @@ class Application : Application() {
         super.onCreate()
         registerActivityLifecycleCallbacks(ThemeCallback(R.style.AppTheme_Custom))
         registerActivityLifecycleCallbacks(DialogCallback(ExampleDialogFragment()))
+        registerActivityLifecycleCallbacks(StartingActivityCallback())
     }
 
     interface ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
@@ -80,6 +81,17 @@ class EntryPointActivity : AppCompatActivity() {
                 text = "Dailog Example"
                 setOnClickListener {
                     startActivity(Intent(it.context, DialogActivity::class.java))
+                }
+            }.also(::addView)
+
+            Button(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                text = "StartForResult Example"
+                setOnClickListener {
+                    startActivity(Intent(it.context, StartForResultActivity::class.java))
                 }
             }.also(::addView)
         })

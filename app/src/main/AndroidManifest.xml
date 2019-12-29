@@ -22,6 +22,8 @@
         <activity android:name=".ThemeActivity" />
         <activity android:name="ru.yandex.notmoney.NotAffectedThemeActivity" />
         <activity android:name=".DialogActivity" />
+        <activity android:name=".StartForResultActivity" />
+        <activity android:name=".ResultActivity" />
 
     </application>
 </manifest>
