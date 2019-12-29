@@ -12,12 +12,20 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import dagger.android.DispatchingAndroidInjector
 import ru.yandex.notmoney.NotAffectedThemeActivity
+import javax.inject.Inject
 
 class Application : Application() {
 
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+
     override fun onCreate() {
         super.onCreate()
+
+        DaggerApplicationComponent.create().inject(this)
+
         registerActivityLifecycleCallbacks(ThemeCallback(R.style.AppTheme_Custom))
         registerActivityLifecycleCallbacks(DialogCallback(ExampleDialogFragment()))
         registerActivityLifecycleCallbacks(StartingActivityCallback())
@@ -27,6 +35,7 @@ class Application : Application() {
             }
         )
         registerActivityLifecycleCallbacks(InjectingLifecycleCallbacks())
+        registerActivityLifecycleCallbacks(DaggerInjectingLifecycleCallbacks(dispatchingAndroidInjector))
     }
 
     interface ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
@@ -121,6 +130,17 @@ class EntryPointActivity : AppCompatActivity() {
                 text = "DI Example"
                 setOnClickListener {
                     startActivity(Intent(it.context, DIActivity::class.java))
+                }
+            }.also(::addView)
+
+            Button(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                text = "Dagger Example"
+                setOnClickListener {
+                    startActivity(Intent(it.context, DaggerActivity::class.java))
                 }
             }.also(::addView)
         })

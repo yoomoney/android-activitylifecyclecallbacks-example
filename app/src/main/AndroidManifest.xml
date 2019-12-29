@@ -26,6 +26,7 @@
         <activity android:name=".ResultActivity" />
         <activity android:name=".AnalyticsActivity" />
         <activity android:name=".DIActivity" />
+        <activity android:name=".DaggerActivity" />
 
     </application>
 </manifest>
