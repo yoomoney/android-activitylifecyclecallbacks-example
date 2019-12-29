@@ -26,6 +26,7 @@ class Application : Application() {
                 Log.d("Analytics", "$name $params")
             }
         )
+        registerActivityLifecycleCallbacks(InjectingLifecycleCallbacks())
     }
 
     interface ActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
@@ -109,6 +110,17 @@ class EntryPointActivity : AppCompatActivity() {
                 text = "Analytics Example"
                 setOnClickListener {
                     startActivity(Intent(it.context, AnalyticsActivity::class.java))
+                }
+            }.also(::addView)
+
+            Button(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                text = "DI Example"
+                setOnClickListener {
+                    startActivity(Intent(it.context, DIActivity::class.java))
                 }
             }.also(::addView)
         })

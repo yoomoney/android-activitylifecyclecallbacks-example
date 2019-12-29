@@ -25,6 +25,7 @@
         <activity android:name=".StartForResultActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".AnalyticsActivity" />
+        <activity android:name=".DIActivity" />
 
     </application>
 </manifest>
