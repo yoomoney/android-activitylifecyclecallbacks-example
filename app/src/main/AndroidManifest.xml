@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ru.yandex.money.aclexample">
+    package="ru.yandex.money.alcexample">
 
     <application
-        android:name=".Application"
+        android:name="ru.yandex.money.alcexample.Application"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,21 +12,21 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".EntryPointActivity">
+        <activity android:name="ru.yandex.money.alcexample.EntryPointActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ThemeActivity" />
+        <activity android:name="ru.yandex.money.alcexample.ThemeActivity" />
         <activity android:name="ru.yandex.notmoney.NotAffectedThemeActivity" />
-        <activity android:name=".DialogActivity" />
-        <activity android:name=".StartForResultActivity" />
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".AnalyticsActivity" />
-        <activity android:name=".DIActivity" />
-        <activity android:name=".DaggerActivity" />
+        <activity android:name="ru.yandex.money.alcexample.DialogActivity" />
+        <activity android:name="ru.yandex.money.alcexample.StartForResultActivity" />
+        <activity android:name="ru.yandex.money.alcexample.ResultActivity" />
+        <activity android:name="ru.yandex.money.alcexample.AnalyticsActivity" />
+        <activity android:name="ru.yandex.money.alcexample.DIActivity" />
+        <activity android:name="ru.yandex.money.alcexample.DaggerActivity" />
 
     </application>
 </manifest>

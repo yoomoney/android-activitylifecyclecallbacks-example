@@ -1,5 +1,6 @@
-package ru.yandex.money.aclexample
+package ru.yandex.money.alcexample
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.Gravity
@@ -41,6 +42,7 @@ class DialogActivity : AppCompatActivity() {
 
 class ExampleDialogFragment : AppCompatDialogFragment() {
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return AppCompatTextView(context).apply {
             layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)

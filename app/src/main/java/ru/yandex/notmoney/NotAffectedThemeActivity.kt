@@ -1,5 +1,6 @@
 package ru.yandex.notmoney
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.ContextThemeWrapper
 import android.view.Gravity
@@ -8,9 +9,10 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import ru.yandex.money.aclexample.R
+import ru.yandex.money.alcexample.R
 
 class NotAffectedThemeActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(LinearLayout(this).apply {

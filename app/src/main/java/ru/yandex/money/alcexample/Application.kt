@@ -1,4 +1,4 @@
-package ru.yandex.money.aclexample
+package ru.yandex.money.alcexample
 
 import android.app.Activity
 import android.app.Application
