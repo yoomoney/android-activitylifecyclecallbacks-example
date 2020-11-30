@@ -1,4 +1,4 @@
-package ru.yandex.money.alcexample
+package ru.yoo.money.alcexample
 
 import android.app.Activity
 import android.app.Application
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import dagger.android.DispatchingAndroidInjector
-import ru.yandex.notmoney.NotAffectedThemeActivity
+import ru.yoo.notmoney.NotAffectedThemeActivity
 import javax.inject.Inject
 
 class Application : Application() {
