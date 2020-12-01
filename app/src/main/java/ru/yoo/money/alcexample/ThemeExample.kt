@@ -1,4 +1,4 @@
-package ru.yandex.money.alcexample
+package ru.yoo.money.alcexample
 
 import android.app.Activity
 import android.os.Bundle
@@ -9,7 +9,7 @@ class ThemeCallback(@StyleRes val myTheme: Int) : Application.ActivityLifecycleC
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         activity
-            .takeIf { it.javaClass.name.startsWith("ru.yandex.money") }
+            .takeIf { it.javaClass.name.startsWith("ru.yoo.money") }
             ?.setTheme(myTheme)
     }
 

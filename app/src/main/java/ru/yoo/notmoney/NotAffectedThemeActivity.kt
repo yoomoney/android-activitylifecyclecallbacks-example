@@ -1,4 +1,4 @@
-package ru.yandex.notmoney
+package ru.yoo.notmoney
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import ru.yandex.money.alcexample.R
+import ru.yoo.money.alcexample.R
 
 class NotAffectedThemeActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
